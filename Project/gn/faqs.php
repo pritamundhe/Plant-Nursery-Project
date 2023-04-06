@@ -18,16 +18,24 @@ session_start();
 $sql = "SELECT question
 FROM FAQ";
 $result = $conn->query($sql);
-$ques = $result->fetch_assoc();
-$q = $ques['question'];
+if ($result->num_rows > 0) {
+  $ques = $result->fetch_assoc();
+  $q = $ques['question'];
+} else {
+  $q = "No questions found";
+}
 ?>
 
 <?php
 $sql = "SELECT answer
 FROM FAQ";
 $result = $conn->query($sql);
-$ans = $result->fetch_assoc();
-$a = $ans['answer'];
+if ($result->num_rows > 0) {
+  $ans = $result->fetch_assoc();
+  $a = $ans['answer'];
+} else {
+  $a = "No answers found";
+}
 ?>
 
   <main class="flex w-full">

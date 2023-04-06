@@ -15,8 +15,8 @@
             <div class="bg-gray-50">
                 <div class="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
                     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                        <span class="block">Want to sell your own items?</span>
-                        <span class="block text-blue-800">Sign up to become a seller.</span>
+                        <span class="block">Looking to share your green thumb and sell your own nursery items? </span>
+                        <span class="block text-blue-800">Join our community of sellers and sign up today!</span>
                     </h2>
                     <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
                         <div class="inline-flex rounded-md shadow">
