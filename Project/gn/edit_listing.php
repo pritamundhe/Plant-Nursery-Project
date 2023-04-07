@@ -13,6 +13,7 @@
     if(isset($_POST['submit'])){
         $brandID = 0;
         $brand = strtoupper($_POST['brand']);
+        $imagePath = $_FILES
         $sql = "SELECT * FROM brand WHERE UPPER(brand)='$brand'";
         $result = $conn->query($sql);
         $rest = $result->fetch_assoc();
@@ -37,6 +38,14 @@
         $sql = "UPDATE products 
         SET title='$_POST[title]', brand=$brandID, quantity=$_POST[quantity], price=$price ,list_price=$listPrice, categories=$_POST[categories], description='$_POST[description]'
         WHERE product_ID=$_POST[productID]";
+
+$sql = "INSERT INTO products (image) VALUES ('$imagePath')";
+if ($conn->query($sql) === TRUE) {
+    echo "Image uploaded successfully.";
+} else {
+    echo "Error uploading image: " . $conn->error;
+}
+
         if ($conn->query($sql) === TRUE) {
             //echo "Record updated successfully";
             $check = 1;
@@ -66,7 +75,7 @@
                     <?php
                     if($check == 1) echo "<div class='text-gray-500 text-center font-bold'>Succesfully updated your product!</div>";
                     ?>
-                        <form action="edit_listing.php" method="POST">
+                        <form action="edit_listing.php" method="POST" enctype="multipart/form-data">
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
                                     <div class="px-4 py-5 sm:px-6">
@@ -160,17 +169,17 @@
                                 <div class="col-span-6">
                                     <label class="block text-sm font-medium text-gray-700" for="image">Main Image</label>
                                     <div class="col-md-4">
-                                        <input id="image" name="image" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        <input id="image" name="image" type="file" accept="image/png, image/jpg, image/jpeg" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" required>
                                     </div>
                                 </div>
-                                <!-- File Button
+                                
                                 <div class="col-span-6">
                                     <label class="block text-sm font-medium text-gray-700" for="extraImage">Extra Images</label>
                                     <div class="col-md-4">
                                         <input id="extraImage" name="extraImage" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                     </div>
                                 </div>
-                                                -->
+                                                
                                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                     <button id="submit" name="submit" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
                                 </div>

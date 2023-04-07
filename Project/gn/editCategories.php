@@ -1,11 +1,14 @@
 <?php
     include 'db_connection.php';
-
     if(isset($_GET['categories'])) {
-      $cName = $_GET['categories'];
-      $delete = mysqli_query($conn, "DELETE FROM `categories` WHERE `categories` = '$cName'");
-      header("location:editCategories.php");
-    }
+        $cName = $_GET['categories'];
+        // Update the products table to set the category to NULL for all rows that reference the category being deleted
+        mysqli_query($conn, "UPDATE `products` SET `categories` = NULL WHERE `categories` = '$cName'");
+        // Delete the category
+        mysqli_query($conn, "DELETE FROM `categories` WHERE `categories` = '$cName'");
+        header("location:editCategories.php");
+      }
+      
 
     $table = "SELECT * FROM categories";
     $query = mysqli_query($conn, $table);
