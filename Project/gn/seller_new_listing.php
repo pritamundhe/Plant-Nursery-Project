@@ -5,10 +5,13 @@ $check = 0;
 $brandID = 0;
 if(isset($_POST["list"])){
     $brand = strtolower($_POST['brand']);
+
+  
+
     $sql = "SELECT * FROM brand WHERE LOWER(brand)='$brand'";
     $result = $conn->query($sql);
     $use = $result->fetch_assoc();
-    if(strlen($use['brand']) > 0){
+    if($use && strlen($use['brand']) > 0){
         $brandID = $use['brand_ID'];
     }else{
         $sql = "INSERT INTO brand (brand) VALUES('$_POST[brand]')";
@@ -22,10 +25,39 @@ if(isset($_POST["list"])){
         $use2 = $result2->fetch_assoc();
         $brandID = $use2['brand_ID'];
     }
-    $price = str_replace('$', ' ', $_POST['price']);
+    $price = str_replace('₹', ' ', $_POST['price']);
 
-    $sql = "INSERT INTO products (title, price, list_price, brand, categories, description, seller_ID, quantity)
-    VALUES('$_POST[title]', $price, $price, $brandID, $_POST[categories], '$_POST[description]', $_SESSION[ID], $_POST[quantity])";
+
+
+    $fileInfo = PATHINFO($_FILES["image"]["name"]);
+	
+    if (empty($_FILES["image"]["name"])){
+        $location="";
+    }
+    else{
+        if ($fileInfo['extension'] == "jpg" OR $fileInfo['extension'] == "png") {
+            $newFilename = $fileInfo['filename'] . "_" . time() . "." . $fileInfo['extension'];
+            $target_dir = "upload/"; // Specify the target directory
+            if (!file_exists($target_dir)) {
+                mkdir($target_dir, 0777, true); // Create the directory if it does not exist
+            }
+            $target_file = $target_dir . $newFilename;
+            move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+            $location = "upload/" . $newFilename;
+        }
+        else{
+            $location="";
+            ?>
+                <script>
+                    window.alert('Photo not added. Please upload JPG or PNG photo only!');
+                </script>
+            <?php
+        }
+    }
+    
+
+    $sql = "INSERT INTO products (title, price, list_price, brand, categories, description, seller_ID, quantity, image)
+    VALUES('$_POST[title]', $price, $price, $brandID, $_POST[categories], '$_POST[description]', $_SESSION[ID], $_POST[quantity], '$location')";
     if ($conn->query($sql) === TRUE) {
         //echo "New record created successfully";
         $check = 1;
@@ -34,6 +66,7 @@ if(isset($_POST["list"])){
     }
 }
 ?>
+
 
 <?php
 //TEMPLATES
@@ -53,7 +86,7 @@ if(isset($_POST["list"])){
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <form action="seller_new_listing.php" method="POST">
+                        <form action="seller_new_listing.php" method="POST" enctype="multipart/form-data">
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
                                     <div class="px-4 py-5 sm:px-6">
@@ -111,14 +144,14 @@ if(isset($_POST["list"])){
                                         </div>
                                     </div>
                                 </div>
-                                 <!-- File Button
+                                 
                                 <div class="col-span-6">
                                     <label class="block text-sm font-medium text-gray-700" for="image">Main Image</label>
                                     <div class="col-md-4">
                                         <input id="image" name="image" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                     </div>
                                 </div>
-                                -->
+                            
                                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                     <button id="list" name="list" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">List</button>
                                 </div>

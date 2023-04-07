@@ -28,8 +28,8 @@ if(isset($_POST['delete'])){
 }
 
 if(isset($_POST['save'])){
-    $price = str_replace('$', ' ', $_POST['price']);
-    $listPrice = str_replace('$', ' ', $_POST['listPrice']);
+    $price = str_replace('₹', ' ', $_POST['price']);
+    $listPrice = str_replace('₹', ' ', $_POST['listPrice']);
 
     $sql = "UPDATE products SET price=$price, list_price=$listPrice, quantity=$_POST[quantity] WHERE product_ID=$_POST[productID]";
     if ($conn->query($sql) === TRUE) {

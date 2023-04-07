@@ -162,7 +162,7 @@ if(isset($_POST['cart'])){
                     <!-- -->
                         <aside class="mt-4 lg:mt-0 lg:row-span-3">
                             <h2 class="text-gray-900">Price</h2>
-                            <p class="text-3xl text-gray-900">$<?php echo $res['price']?></p>
+                            <p class="text-3xl text-gray-900">₹<?php echo $res['price']?></p>
 
                             <form action="product_details.php" method="POST" id="" class="mt-10">
                             <input type="text" name="product" hidden id="product" value='<?php echo $_POST['product'] ?>'>
