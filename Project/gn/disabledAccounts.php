@@ -6,7 +6,7 @@
       $uId = $_POST['id'];
       $uEmail = $_POST['email'];
       $uPhone = $_POST['phone'];
-      $table = "UPDATE Users SET disabled = 0 WHERE user_ID = '$uId'";
+      $table = "UPDATE Users SET disabled = 1 WHERE user_ID = '$uId'";
 
       $query = mysqli_query($conn, $table);
     }
@@ -78,7 +78,7 @@ include 'templates/nav-admin.php';
                                           $row = mysqli_num_rows($query);
                                           if($row > 0) {
                                           while($res = mysqli_fetch_array($query)) {
-                                          if($res['disabled'] == 1) {
+                                          if($res['disabled'] == 0) {
                                             ?>
                                             <tr>
                                             <td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>

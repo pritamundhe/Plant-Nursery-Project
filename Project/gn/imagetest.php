@@ -16,7 +16,7 @@ if (isset($_POST['upload'])) {
 	$tempname = $_FILES['uploadfile']['tmp_name'];
 	$folder = "image/".$filename;
 
-	//$db = mysqli_connect("localhost", "root", "", "ecommerce");
+	//$db = mysqli_connect("localhost", "root", "", "greentech");
 
 		// Get all the submitted data from the form
 		$sql = "INSERT INTO image (Filename) VALUES ('$filename')";

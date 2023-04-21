@@ -56,9 +56,9 @@ if(isset($_POST['save'])){
             <?php
                 if($check == 1) echo "<p class='text-green-500'>Product updated!</p>";
             ?>
-            <div class="container mx-auto mt-10">
-                <div class="flex shadow-md my-10">
-                    <div class="w-full bg-white px-10 py-10">
+            <div class="container mx-auto mt-10 py-0">
+                <div class="flex shadow-md my-0">
+                    <div class="w-full bg-white px-10 py-4">
                         <div class="flex justify-between border-b pb-8">
                             <h1 class="font-semibold text-2xl">Inventory</h1>
                             <h2 class="font-semibold text-2xl"><?php echo $total ?> Items</h2>
@@ -101,8 +101,8 @@ if(isset($_POST['save'])){
                             echo "<div class='flex justify-center w-1/5'>";
                                 echo "<input class='mx-2 border text-center w-8' name='quantity' type='text' pattern='[0-9]+' value='" . $res['quantity'] . "'>";
                             echo "</div>";
-                            echo "<input type='text' name='price' id='price' class='text-center w-1/5 font-semibold text-sm' pattern='[0-9.$]+' value='$" . sprintf("%.2f", $res['price']) . "'>";
-                            echo "<input type='text' name='listPrice' id='listPrice' class='text-center w-1/5 font-semibold text-sm' pattern='[0-9.$]+' value='$" . sprintf("%.2f", $res['list_price']) . "'>";
+                            echo "<input type='text' name='price' id='price' class='text-center w-1/5 font-semibold text-sm' pattern='[0-9.$]+' value='₹" . sprintf("%.2f", $res['price']) . "'>";
+                            echo "<input type='text' name='listPrice' id='listPrice' class='text-center w-1/5 font-semibold text-sm' pattern='[0-9.$]+' value='₹" . sprintf("%.2f", $res['list_price']) . "'>";
                             echo "<span class='text-center w-1/5 font-semibold text-sm'>" . $totalQuantity . "</span>";
                             echo "<button type='submit' form='form" . $counter . "' name='save' class='text-center w-1/5 font-semibold text-sm text-green-700'>Update</span>";
                             echo "<input type='text' hidden name='productID' id='productID' value='" . $res['product_ID'] . "'>";

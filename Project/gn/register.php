@@ -68,9 +68,9 @@ if(isset($_POST['register'])){
 ?>
 
 <div class="w-full">
-    <div class="flex shadow-md my-10">
-        <div class="w-full bg-white px-10 py-10">
-            <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="flex shadow-xl my-10">
+        <div class="w-full bg-white px-1 py-1">
+            <div class="min-h-full flex items-center justify-center py-2 px-4 sm:px-2 lg:px-8">
                 <div class="max-w-md w-full space-y-8">
                     <div>
                         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -85,59 +85,57 @@ if(isset($_POST['register'])){
                         }
                     ?>
 
-                    <div class="mt-10 sm:mt-0">
+<div class="mt-10 sm:mt-0">
                         <div class="w-full">
-
-                            <div class="mt-5 md:mt-0 md:col-span-2">
-                                <form action="#" method="POST">
-                                    <div class="shadow overflow-hidden sm:rounded-md">
-                                    <div class="px-4 py-5 bg-white sm:p-6">
-
+                        <div class="mt-5 md:mt-0 md:col-span-10">
+                            <form action="#" method="POST">
+                                <div class="w-90 mx-auto shadow border-2 border-black overflow-hidden sm:w-auto sm:square-4xl">
+                                <div class="px-4 py-5 bg-white sm:p-6">
                                         <div class="grid grid-cols-6 gap-6">
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="role" class="block text-sm font-medium text-gray-700">Select type of account</label>
-                                                <select name="role" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <select name="role" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                                     <option value="buyer" <?php if(isset($_POST['role']) && $_POST['role'] == 'buyer') echo "selected";?>>Buyer</option>
                                                     <option value="seller" <?php if(isset($_POST['role']) && $_POST['role'] == 'seller') echo "selected";?>>Seller</option>
                                                 </select>
 
                                             </div>
                                             <div class="col-span-6 sm:col-span-4">
-                                                <input value='Select Role' name='roleButton' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                <input value='Select Role' name='roleButton' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium square text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="fname" class="block text-sm font-medium text-gray-700">First Name</label>
-                                                <input id="fname" name="fname" type="text" <?php echo isset($_POST['role']) ? 'required':'disabled';?> class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="fname" name="fname" type="text" <?php echo isset($_POST['role']) ? 'required':'disabled';?> class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="lname" class="block text-sm font-medium text-gray-700">Last Name</label>
-                                                <input id="lname" name="lname" type="text" <?php echo isset($_POST['role']) ? 'required':'disabled';?> class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="lname" name="lname" type="text" <?php echo isset($_POST['role']) ? 'required':'disabled';?> class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-4">
                                                 <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                                                <input id="email" name="email" <?php echo isset($_POST['role']) ? 'required':'disabled';?> type="email" autocomplete="email" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="email" name="email" <?php echo isset($_POST['role']) ? 'required':'disabled';?> type="email" autocomplete="email" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-4">
                                                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                                                <input id="phone" name="phone" <?php echo isset($_POST['role']) ? 'required':'disabled';?> type="tel"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="phone" name="phone" <?php echo isset($_POST['role']) ? 'required':'disabled';?> type="tel"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
-                                                <select id="gender" name="gender" <?php echo isset($_POST['role'])? '':'disabled'?> type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <select id="gender" name="gender" <?php echo isset($_POST['role'])? '':'disabled'?> type="text" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                                     <option value="nothing">Ignore</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                     <option value="other">Other</option>
                                                 </select>
                                             </div>
-
+                                
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
-                                                <input id="dob" name="dob" type="date" <?php echo isset($_POST['role']) ? 'required':'disabled';?> class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="dob" name="dob" type="date" <?php echo isset($_POST['role']) ? 'required':'disabled';?> class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6">
@@ -150,13 +148,13 @@ if(isset($_POST['register'])){
                                                 }else{
                                                 echo 'disabled';
                                                 }
-                                                ?> type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                ?> type="text" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
                                             <div class="col-span-6">
                                                 <label for="secondAddress" class="block text-sm font-medium text-gray-700">Address Second Line</label>
                                                 <input id="secondAddress" name="secondAddress" <?php 
                                                 if(!isset($_POST['role'])) echo 'disabled';
-                                                ?> type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                ?> type="text" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-6 lg:col-span-2">
@@ -169,11 +167,11 @@ if(isset($_POST['register'])){
                                                 }else{
                                                 echo 'disabled';
                                                 }
-                                                ?> type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                ?> type="text" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                                <label for="state" class="block text-sm font-medium text-gray-700">State</label>
+                                                <label for="state" class="block text-sm font-medium text-gray-700">District</label>
                                                 <select id="state" name="state" <?php 
                                                 if(isset($_POST['role'])){
                                                 if($_POST['role'] == 'seller'){
@@ -182,59 +180,14 @@ if(isset($_POST['register'])){
                                                 }else{
                                                 echo 'disabled';
                                                 }
-                                                ?> type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                ?> type="text" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                                 <option value="">---</option>
-                                                <option value="AL">Alabama</option>
-                                                <option value="AK">Alaska</option>
-                                                <option value="AZ">Arizona</option>
-                                                <option value="AR">Arkansas</option>
-                                                <option value="CA">California</option>
-                                                <option value="CO">Colorado</option>
-                                                <option value="CT">Connecticut</option>
-                                                <option value="DE">Delaware</option>
-                                                <option value="DC">District Of Columbia</option>
-                                                <option value="FL">Florida</option>
-                                                <option value="GA">Georgia</option>
-                                                <option value="HI">Hawaii</option>
-                                                <option value="ID">Idaho</option>
-                                                <option value="IL">Illinois</option>
-                                                <option value="IN">Indiana</option>
-                                                <option value="IA">Iowa</option>
-                                                <option value="KS">Kansas</option>
-                                                <option value="KY">Kentucky</option>
-                                                <option value="LA">Louisiana</option>
-                                                <option value="ME">Maine</option>
-                                                <option value="MD">Maryland</option>
-                                                <option value="MA">Massachusetts</option>
-                                                <option value="MI">Michigan</option>
-                                                <option value="MN">Minnesota</option>
-                                                <option value="MS">Mississippi</option>
-                                                <option value="MO">Missouri</option>
-                                                <option value="MT">Montana</option>
-                                                <option value="NE">Nebraska</option>
-                                                <option value="NV">Nevada</option>
-                                                <option value="NH">New Hampshire</option>
-                                                <option value="NJ">New Jersey</option>
-                                                <option value="NM">New Mexico</option>
-                                                <option value="NY">New York</option>
-                                                <option value="NC">North Carolina</option>
-                                                <option value="ND">North Dakota</option>
-                                                <option value="OH">Ohio</option>
-                                                <option value="OK">Oklahoma</option>
-                                                <option value="OR">Oregon</option>
-                                                <option value="PA">Pennsylvania</option>
-                                                <option value="RI">Rhode Island</option>
-                                                <option value="SC">South Carolina</option>
-                                                <option value="SD">South Dakota</option>
-                                                <option value="TN">Tennessee</option>
-                                                <option value="TX">Texas</option>
-                                                <option value="UT">Utah</option>
-                                                <option value="VT">Vermont</option>
-                                                <option value="VA">Virginia</option>
-                                                <option value="WA">Washington</option>
-                                                <option value="WV">West Virginia</option>
-                                                <option value="WI">Wisconsin</option>
-                                                <option value="WY">Wyoming</option>
+                                                <option value="AL">Nashik</option>
+                                                <option value="AK">	Nandurbar</option>
+                                                <option value="AZ">Pune</option>
+                                                <option value="AR">Ratnagiri</option>
+                                                <option value="CA">	Sangli</option>
+                                                
                                                 </select>
                                             </div>
 
@@ -248,17 +201,17 @@ if(isset($_POST['register'])){
                                                 }else{
                                                 echo 'disabled';
                                                 }
-                                                ?> type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                ?> type="text" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                                                <input id="password" name="password" <?php echo isset($_POST['role']) ? 'required':'disabled';?> type="password" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="password" name="password" <?php echo isset($_POST['role']) ? 'required':'disabled';?> type="password" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="conPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-                                                <input id="conPassword" name="conPassword" <?php echo isset($_POST['role']) ? 'required':'disabled';?> type="password" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="conPassword" name="conPassword" <?php echo isset($_POST['role']) ? 'required':'disabled';?> type="password" class="appearance-none square relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +219,7 @@ if(isset($_POST['register'])){
                                     <div class="px-4 py-3 bg-gray-50 text-left sm:px-6">
                                         <p>Already have an account? <a href="login.php" class="text-blue-600 hover:text-blue-400">Login here.</a></p>
                                         <div class="flex justify-center pt-12">
-                                            <input value='Register' name='register' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                            <input value='Register' name='register' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium square-md text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                         </div>
                                     </div>
                                     </div>

@@ -48,25 +48,25 @@ include 'templates/search-bar.php';
                         <!--Table-->
                         <div>
                             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                                <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                                <div class="inline-block min-w-full border-2 border-gray-200 shadow square-lg overflow-hidden">
                                     <!--Table Header-->
                                     <table class="min-w-full leading-normal">
                                         <thead>
                                             <tr>
                                             <th
-                                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                class="px-5 py-3 border-b-2 border-gray-300 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                                 Order Number
                                             </th>
                                             <th
-                                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                class="px-5 py-3 border-b-2 border-gray-300 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                                 Customer Name
                                             </th>
                                             <th
-                                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                class="px-5 py-3 border-b-2 border-gray-300 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                                 Payout
                                             </th>
                                             <th
-                                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                class="px-5 py-3 border-b-2 border-gray-300 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                                 Status
                                             </th>
                                             </tr>
@@ -88,13 +88,13 @@ include 'templates/search-bar.php';
                                         ?>
                                             <tr>
                                             <!--Order number-->
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                                 <a href="order.php?trans=<?php echo $res['transaction_ID']?>" class="text-blue-500 hover:text-blue-300 whitespace-no-wrap">
                                                 <?php echo $res['transaction_ID'] ?>
                                                 </a>
                                             </td>
                                             <!--Name-->
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
                                                 <?php echo $t['first_name'] . " " . $t['last_name'] ?>
                                                 </p>
@@ -112,14 +112,14 @@ include 'templates/search-bar.php';
 
                                             ?>
                                             <!--Payout-->
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">$
+                                            <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap">₹
                                                 <?php echo sprintf("%.2f", $total) ?>
                                                 </p>
                                             </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white">
+                                            <td class="px-5 py-5 border-b border-gray-300 bg-white">
                                             <?php
-                                                if($res['payout'] == 0){
+                                               if (isset($res['payout']) && $res['payout'] == 0) {
                                                    ?>
                                                     <div class="flex items-center">
                                                         <button type="submit" form="form1" value='<?php echo $res['transaction_ID'] . " " . $res['seller_ID'] ?>' name="transfer" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Transfer Funds</button>

@@ -76,44 +76,50 @@
 						                </thead>
                                         <!--Table Body-->
                                         <tbody>
-                                            <?php
-                                            $sql="SELECT * FROM Messages WHERE recipient_ID=$_SESSION[ID] ORDER BY create_date DESC";
-                                            $result = $conn->query($sql);
+    <?php
+        if(isset($_SESSION["ID"])) {
+            $sql="SELECT * FROM Messages WHERE recipient_ID=$_SESSION[ID] ORDER BY create_date DESC";
+            $result = $conn->query($sql);
 
-                                            while($res = mysqli_fetch_array($result)) {
-                                                $sql = "SELECT * FROM Messages m INNER JOIN Users u on m.sender_ID=u.user_ID WHERE m.message_ID=$res[message_ID]";
-                                                $info = $conn->query($sql);
-                                                $user = $info->fetch_assoc();
-                                                $date = substr($user['create_date'], 0, 10);
-                                                // Creating timestamp from given date
-                                                $timestamp = strtotime($date);
-                                                // Creating new date format from that timestamp
-                                                $new_date = date("F-d-Y", $timestamp);
-							                echo "<tr>";
-                                                //Name of sender
-								                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
-									                echo "<div class='flex items-center'>";
-											            echo "<div class='ml-3'>";
-												            echo "<button form='form3' name='message' class='text-blue-500' value='" . $user['message_ID'] . " " . $user['sender_ID'] . "' hover:text-blue-300 whitespace-no-wrap'>" . $user['first_name'] . " " . $user['last_name'] . "</button>";
-											            echo "</div>";
-										            echo "</div>";
-								                echo "</td>";
-                                                //Date of message
-								                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
-									                echo "<p class='text-gray-900 whitespace-no-wrap'>" . $new_date . "</p>";
-								                echo "</td>";
-                                                //Subject
-								                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
-                                                    echo "<p class='text-gray-900 whitespace-no-wrap'>" . $user['subject'] . "</p>";
-								                echo "</td>";
-                                                //Delete
-                                                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-xs text-gray-500 font-semibold hover:text-red-500'>";
-                                                    echo "<button name='delete' form='form3' value='" . $user['message_ID'] . "'>Delete</button>";
-                                                echo "</td>";
-							                echo "</tr>";
-                                            }
-							                ?>
-						                </tbody>
+            while($res = mysqli_fetch_array($result)) {
+                $sql = "SELECT * FROM Messages m INNER JOIN Users u on m.sender_ID=u.user_ID WHERE m.message_ID=$res[message_ID]";
+                $info = $conn->query($sql);
+                $user = $info->fetch_assoc();
+                $date = substr($user['create_date'], 0, 10);
+                // Creating timestamp from given date
+                $timestamp = strtotime($date);
+                // Creating new date format from that timestamp
+                $new_date = date("F-d-Y", $timestamp);
+                echo "<tr>";
+                //Name of sender
+                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
+                    echo "<div class='flex items-center'>";
+                        echo "<div class='ml-3'>";
+                            echo "<button form='form3' name='message' class='text-blue-500' value='" . $user['message_ID'] . " " . $user['sender_ID'] . "' hover:text-blue-300 whitespace-no-wrap'>" . $user['first_name'] . " " . $user['last_name'] . "</button>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</td>";
+                //Date of message
+                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
+                    echo "<p class='text-gray-900 whitespace-no-wrap'>" . $new_date . "</p>";
+                echo "</td>";
+                //Subject
+                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
+                    echo "<p class='text-gray-900 whitespace-no-wrap'>" . $user['subject'] . "</p>";
+                echo "</td>";
+                //Delete
+                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-xs text-gray-500 font-semibold hover:text-red-500'>";
+                    echo "<button name='delete' form='form3' value='" . $user['message_ID'] . "'>Delete</button>";
+                echo "</td>";
+                echo "</tr>";
+            }
+        }
+        else {
+            echo "<tr><td colspan='4' class='text-center'>No messages found.</td></tr>";
+        }
+    ?>
+</tbody>
+
 					                </table>
 				                </div>
 			                </div>

@@ -87,7 +87,7 @@ if(isset($_POST["list"])){
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <form action="seller_new_listing.php" method="POST" enctype="multipart/form-data">
-                            <div class="shadow overflow-hidden sm:rounded-md">
+                            <div class="shadow overflow-hidden sm:square-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
                                     <div class="px-4 py-5 sm:px-6">
                                     <?php
@@ -99,12 +99,12 @@ if(isset($_POST["list"])){
                                         <!--Product title-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">Product Name</label>
-                                            <input required type="text" id="title" name="title" placeholder="Product name" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <input required type="text" id="title" name="title" placeholder="Product name" class="appearance-none square relative block w-full px-3 py-2 border border-gray-500 placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
                                         <!--Product brand-->
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
-                                            <input required type="text" id="brand" name="brand" placeholder="Brand" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <label for="brand" class="block text-sm font-medium text-gray-700">Nursary</label>
+                                            <input required type="text" id="brand" name="brand" placeholder="Nursary" class="appearance-none square relative block w-full px-3 py-2 border border-gray-500 placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
                                         <!--Product category-->
                                         <?php
@@ -113,7 +113,7 @@ if(isset($_POST["list"])){
                                         ?>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="catagory" class="block text-sm font-medium text-gray-700">Product Category</label>
-                                            <select required id="categories" name="categories" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <select required id="categories" name="categories" class="appearance-none square relative block w-1/2 px-3 py-2 border border-gray-500 placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             <?php
                                             $timer = 1;
                                             while($res = mysqli_fetch_array($result)) {
@@ -130,17 +130,17 @@ if(isset($_POST["list"])){
                                         <!--Product price-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                                            <input required type="text" pattern='[0-9.$]+' id="price" name="price" placeholder="$100.00" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <input required type="text" pattern='[0-9.₹]+' id="price" name="price" placeholder="₹100.00" class="appearance-none square relative block w-1/3 px-3 py-2 border border-gray-500 placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
                                         <!--Product quantity-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
-                                            <input required type="number" id="quantity" name="quantity" placeholder="Quantity" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <input required type="number" id="quantity" name="quantity" placeholder="Quantity" class="appearance-none square relative block w-1/3 px-3 py-2 border border-gray-500 placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
                                         <!--Product description-->
                                         <div class="col-span-6">
                                             <label for="description" class="block text-sm font-medium text-gray-700">Product Description</label>
-                                            <textarea required id="description" name="description" row="20" cols="40" wrap="soft" placeholder="Product Description" class="resize-none h-40 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                                            <textarea required id="description" name="description" row="20" cols="40" wrap="soft" placeholder="Product Description" class="resize-none h-40 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-500 square-md"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -148,12 +148,12 @@ if(isset($_POST["list"])){
                                 <div class="col-span-6">
                                     <label class="block text-sm font-medium text-gray-700" for="image">Main Image</label>
                                     <div class="col-md-4">
-                                        <input id="image" name="image" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        <input id="image" name="image" type="file" class="appearance-none square relative block w-1/2 px-3 py-2 mt-1 block w-full sm:text-sm placeholder-gray-500 text-gray-900 square-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                     </div>
                                 </div>
                             
                                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                    <button id="list" name="list" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">List</button>
+                                    <button id="list" name="list" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium square-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">List</button>
                                 </div>
                             </div>
                         </form>

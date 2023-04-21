@@ -84,35 +84,37 @@
                                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
                             </div>
                             <?php
-                            $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
-                            $result = $conn->query($sql);
-                            while($res = mysqli_fetch_array($result)) {
-                                $sql = "SELECT * FROM products INNER JOIN brand ON products.brand=brand.brand_ID WHERE products.product_ID=$res[product_ID]";
-                                $product = $conn->query($sql);
-                                $thing = $product->fetch_assoc();
-                                $totalPrice += ($thing['price'] * $res['quantity']);
-                                echo "<div class='flex items-center hover:bg-gray-100 -mx-8 px-6 py-5'>";
-                                    echo "<div class='flex w-2/5'>";
-                                        echo "<div class='w-20'>";
-                                            echo "<img src='" . $thing['image'] . "'alt='placeholder'>";
-                                        echo "</div>";
-                                        echo "<div class='flex flex-col justify-between ml-4 flex-grow'>";
-                                            echo "<span class='font-bold text-sm'>" . $thing['title'] . "</span>";
-                                            echo "<span class='text-blue-500 text-xs'>" . $thing['brand'] . "</span>";
-                                            echo "<button form='form1' name='delete' type='submit' value='". $thing['product_ID'] ."' class='font-semibold text-left hover:text-red-500 text-gray-500 text-xs'>Remove</button>";
-                                        echo "</div>";
-                                    echo "</div>";
-                                    echo "<div class='flex justify-center w-1/5'>";
-                                        echo "<button form='form1' name='minus' type='submit' value='". $thing['product_ID'] ."'>-</button>";
-
-                                        echo "<input class='mx-2 border text-center w-8' disabled type='text' value='" . $res['quantity'] . "'>";
-
-                                        echo "<button form='form1' name='plus' type='submit' value='". $thing['product_ID'] ."'>+</button>";
-                                    echo "</div>";
-                                    echo "<span class='text-center w-1/5 font-semibold text-sm'>" . sprintf("%.2f", $thing['price']) . "</span>";
-                                    echo "<span class='text-center w-1/5 font-semibold text-sm'>" . sprintf("%.2f", ($thing['price'] * $res['quantity']))  . "</span>";
-                                echo "</div>";
-                            }
+                           $totalPrice = 0;
+                           $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
+                           $result = $conn->query($sql);
+                           while($res = mysqli_fetch_array($result)) {
+                               $sql = "SELECT * FROM products INNER JOIN brand ON products.brand=brand.brand_ID WHERE products.product_ID=$res[product_ID]";
+                               $product = $conn->query($sql);
+                               $thing = $product->fetch_assoc();
+                               $totalPrice += ($thing['price'] * $res['quantity']);
+                               echo "<div class='flex items-center hover:bg-gray-100 -mx-8 px-6 py-5'>";
+                                   echo "<div class='flex w-2/5'>";
+                                       echo "<div class='w-20'>";
+                                           echo "<img src='" . $thing['image'] . "'alt='placeholder'>";
+                                       echo "</div>";
+                                       echo "<div class='flex flex-col justify-between ml-4 flex-grow'>";
+                                           echo "<span class='font-bold text-sm'>" . $thing['title'] . "</span>";
+                                           echo "<span class='text-blue-500 text-xs'>" . $thing['brand'] . "</span>";
+                                           echo "<button form='form1' name='delete' type='submit' value='". $thing['product_ID'] ."' class='font-semibold text-left hover:text-red-500 text-gray-500 text-xs'>Remove</button>";
+                                       echo "</div>";
+                                   echo "</div>";
+                                   echo "<div class='flex justify-center w-1/5'>";
+                                       echo "<button form='form1' name='minus' type='submit' value='". $thing['product_ID'] ."'>-</button>";
+                           
+                                       echo "<input class='mx-2 border text-center w-8' disabled type='text' value='" . $res['quantity'] . "'>";
+                           
+                                       echo "<button form='form1' name='plus' type='submit' value='". $thing['product_ID'] ."'>+</button>";
+                                   echo "</div>";
+                                   echo "<span class='text-center w-1/5 font-semibold text-sm'>" . sprintf("%.2f", $thing['price']) . "</span>";
+                                   echo "<span class='text-center w-1/5 font-semibold text-sm'>" . sprintf("%.2f", ($thing['price'] * $res['quantity']))  . "</span>";
+                               echo "</div>";
+                           }
+                           
                             ?>
 
                         </div>
@@ -173,60 +175,14 @@
                     </div>
 
                     <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label for="region" class="block text-sm font-medium text-gray-700">State</label>
+                        <label for="region" class="block text-sm font-medium text-gray-700">District</label>
                         <select id="region" required name="region" type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                             <option value="">---</option>
-                            <option value="AL" <?php if($_SESSION['state'] == 'AL') echo 'selected ' ?>>Alabama</option>
-                            <option value="AK" <?php if($_SESSION['state'] == 'AK') echo 'selected ' ?>>Alaska</option>
-                            <option value="AZ" <?php if($_SESSION['state'] == 'AZ') echo 'selected ' ?>>Arizona</option>
-                            <option value="AR" <?php if($_SESSION['state'] == 'AR') echo 'selected ' ?>>Arkansas</option>
-                            <option value="CA" <?php if($_SESSION['state'] == 'CA') echo 'selected ' ?>>California</option>
-                            <option value="CO" <?php if($_SESSION['state'] == 'CO') echo 'selected ' ?>>Colorado</option>
-                            <option value="CT" <?php if($_SESSION['state'] == 'CT') echo 'selected ' ?>>Connecticut</option>
-                            <option value="DE" <?php if($_SESSION['state'] == 'DE') echo 'selected ' ?>>Delaware</option>
-                            <option value="DC" <?php if($_SESSION['state'] == 'DC') echo 'selected ' ?>>District Of Columbia</option>
-                            <option value="FL" <?php if($_SESSION['state'] == 'FL') echo 'selected ' ?>>Florida</option>
-                            <option value="GA" <?php if($_SESSION['state'] == 'GA') echo 'selected ' ?>>Georgia</option>
-                            <option value="HI" <?php if($_SESSION['state'] == 'HI') echo 'selected ' ?>>Hawaii</option>
-                            <option value="ID" <?php if($_SESSION['state'] == 'ID') echo 'selected ' ?>>Idaho</option>
-                            <option value="IL" <?php if($_SESSION['state'] == 'IL') echo 'selected ' ?>>Illinois</option>
-                            <option value="IN" <?php if($_SESSION['state'] == 'IN') echo 'selected ' ?>>Indiana</option>
-                            <option value="IA" <?php if($_SESSION['state'] == 'IA') echo 'selected ' ?>>Iowa</option>
-                            <option value="KS" <?php if($_SESSION['state'] == 'KS') echo 'selected ' ?>>Kansas</option>
-                            <option value="KY" <?php if($_SESSION['state'] == 'KY') echo 'selected ' ?>>Kentucky</option>
-                            <option value="LA" <?php if($_SESSION['state'] == 'LA') echo 'selected ' ?>>Louisiana</option>
-                            <option value="ME" <?php if($_SESSION['state'] == 'ME') echo 'selected ' ?>>Maine</option>
-                            <option value="MD" <?php if($_SESSION['state'] == 'MD') echo 'selected ' ?>>Maryland</option>
-                            <option value="MA" <?php if($_SESSION['state'] == 'MA') echo 'selected ' ?>>Massachusetts</option>
-                            <option value="MI" <?php if($_SESSION['state'] == 'MI') echo 'selected ' ?>>Michigan</option>
-                            <option value="MN" <?php if($_SESSION['state'] == 'MN') echo 'selected ' ?>>Minnesota</option>
-                            <option value="MS" <?php if($_SESSION['state'] == 'MS') echo 'selected ' ?>>Mississippi</option>
-                            <option value="MO" <?php if($_SESSION['state'] == 'MO') echo 'selected ' ?>>Missouri</option>
-                            <option value="MT" <?php if($_SESSION['state'] == 'MT') echo 'selected ' ?>>Montana</option>
-                            <option value="NE" <?php if($_SESSION['state'] == 'NE') echo 'selected ' ?>>Nebraska</option>
-                            <option value="NV" <?php if($_SESSION['state'] == 'NV') echo 'selected ' ?>>Nevada</option>
-                            <option value="NH" <?php if($_SESSION['state'] == 'NH') echo 'selected ' ?>>New Hampshire</option>
-                            <option value="NJ" <?php if($_SESSION['state'] == 'NJ') echo 'selected ' ?>>New Jersey</option>
-                            <option value="NM" <?php if($_SESSION['state'] == 'NM') echo 'selected ' ?>>New Mexico</option>
-                            <option value="NY" <?php if($_SESSION['state'] == 'NY') echo 'selected ' ?>>New York</option>
-                            <option value="NC" <?php if($_SESSION['state'] == 'NC') echo 'selected ' ?>>North Carolina</option>
-                            <option value="ND" <?php if($_SESSION['state'] == 'ND') echo 'selected ' ?>>North Dakota</option>
-                            <option value="OH" <?php if($_SESSION['state'] == 'OH') echo 'selected ' ?>>Ohio</option>
-                            <option value="OK" <?php if($_SESSION['state'] == 'OK') echo 'selected ' ?>>Oklahoma</option>
-                            <option value="OR" <?php if($_SESSION['state'] == 'OR') echo 'selected ' ?>>Oregon</option>
-                            <option value="PA" <?php if($_SESSION['state'] == 'PA') echo 'selected ' ?>>Pennsylvania</option>
-                            <option value="RI" <?php if($_SESSION['state'] == 'RI') echo 'selected ' ?>>Rhode Island</option>
-                            <option value="SC" <?php if($_SESSION['state'] == 'SC') echo 'selected ' ?>>South Carolina</option>
-                            <option value="SD" <?php if($_SESSION['state'] == 'SD') echo 'selected ' ?>>South Dakota</option>
-                            <option value="TN" <?php if($_SESSION['state'] == 'TN') echo 'selected ' ?>>Tennessee</option>
-                            <option value="TX" <?php if($_SESSION['state'] == 'TX') echo 'selected ' ?>>Texas</option>
-                            <option value="UT" <?php if($_SESSION['state'] == 'UT') echo 'selected ' ?>>Utah</option>
-                            <option value="VT" <?php if($_SESSION['state'] == 'VT') echo 'selected ' ?>>Vermont</option>
-                            <option value="VA" <?php if($_SESSION['state'] == 'VA') echo 'selected ' ?>>Virginia</option>
-                            <option value="WA" <?php if($_SESSION['state'] == 'WA') echo 'selected ' ?>>Washington</option>
-                            <option value="WV" <?php if($_SESSION['state'] == 'WV') echo 'selected ' ?>>West Virginia</option>
-                            <option value="WI" <?php if($_SESSION['state'] == 'WI') echo 'selected ' ?>>Wisconsin</option>
-                            <option value="WY" <?php if($_SESSION['state'] == 'WY') echo 'selected ' ?>>Wyoming</option>
+                                                <option value="NH" <?php if($_SESSION['state'] == 'NH') echo 'selected ' ?>>Nashik</option>
+                                                <option value="ND" <?php if($_SESSION['state'] == 'ND') echo 'selected ' ?>>Nandurbar</option>
+                                                <option value="PA" <?php if($_SESSION['state'] == 'PA') echo 'selected ' ?>>Pune</option>
+                                                <option value="RI" <?php if($_SESSION['state'] == 'RI') echo 'selected ' ?>>Ratnagiri</option>
+                                                <option value="SC" <?php if($_SESSION['state'] == 'SC') echo 'selected ' ?>>Sangli</option>
                         </select>
                     </div>
 

@@ -35,10 +35,11 @@
         $listPrice = str_replace('₹', ' ', $_POST['listPrice']);
 
         $sql = "UPDATE products 
-        SET title='$_POST[title]', brand=$brandID, quantity=$_POST[quantity], price=$price ,list_price=$listPrice, categories=$_POST[categories], description='$_POST[description]'
+        SET title='$_POST[title]', brand=$brandID, quantity=$_POST[quantity], price=$price ,list_price=$listPrice, categories=$_POST[categories], description='$_POST[description]', image='$_POST[image1]'
         WHERE product_ID=$_POST[productID]";
+
         if ($conn->query($sql) === TRUE) {
-            //echo "Record updated successfully";
+            echo "Record updated successfully";
             $check = 1;
         } else {
             //echo "Error updating record: " . $conn->error;
@@ -121,12 +122,12 @@
                                         <!--Product price-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                                            <input required type="text" id="price" pattern='[0-9.$]+' name="price" value='$<?php echo $res['price'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <input required type="text" id="price" pattern='[0-9.$₹]+' name="price" value='₹<?php echo $res['price'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
                                         <!--Product list price-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="listPrice" class="block text-sm font-medium text-gray-700">List Price</label>
-                                            <input required type="text" id="listPrice" pattern='[0-9.$]+' name="listPrice" value='$<?php echo $res['list_price'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <input required type="text" id="listPrice" pattern='[0-9.₹]+' name="listPrice" value='₹<?php echo $res['list_price'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
                                         <!--Product discount percent-->
                                         <div class="col-span-6 sm:col-span-3">
@@ -160,7 +161,7 @@
                                 <div class="col-span-6">
                                     <label class="block text-sm font-medium text-gray-700" for="image">Main Image</label>
                                     <div class="col-md-4">
-                                        <input id="image" name="image" type="file" accept="image/png, image/jpg, image/jpeg" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        <input id="image" name="image1" type="file" accept="image/png, image/jpg, image/jpeg" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                     </div>
                                 </div>
                                 <!-- File Button

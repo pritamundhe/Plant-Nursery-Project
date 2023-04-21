@@ -62,7 +62,7 @@ if(isset($_POST['register'])){
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="lname" class="block text-sm font-medium text-gray-700">Last Name</label>
-                                                <input id="lname" name="lname" type="text" disabled value="<?php echo $_SESSION['lastName'] ?>" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="lname" name="lname" type="text" disabled value="<?php echo $_SESSION['lastName'] ?>" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-4">
@@ -73,21 +73,21 @@ if(isset($_POST['register'])){
 
                                             <div class="col-span-6">
                                                 <label for="firstAddress" class="block text-sm font-medium text-gray-700">Address First Line</label>
-                                                <input id="firstAddress" name="firstAddress" required value="<?php echo $_SESSION['addressFirstLine'] ?>" type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="firstAddress" name="firstAddress" required value="<?php echo $_SESSION['addressFirstLine'] ?>" type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
                                             <div class="col-span-6">
                                                 <label for="secondAddress" class="block text-sm font-medium text-gray-700">Address Second Line</label>
-                                                <input id="secondAddress" name="secondAddress" type="text" value="<?php echo $_SESSION['addressSecondLine'] ?>" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="secondAddress" name="secondAddress" type="text" value="<?php echo $_SESSION['addressSecondLine'] ?>" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                                                 <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                                                <input id="city" name="city" required type="text" value="<?php echo $_SESSION['city'] ?>" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="city" name="city" required type="text" value="<?php echo $_SESSION['city'] ?>" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                                                 <label for="state" class="block text-sm font-medium text-gray-700">State</label>
-                                                <select id="state" name="state" required type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"><br>
+                                                <select id="state" name="state" required type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"><br>
                                                     <option value="">---</option>
                                                     <option value="AL" <?php if($_SESSION['state'] == 'AL') echo 'selected ' ?>>Alabama</option>
                                                     <option value="AK" <?php if($_SESSION['state'] == 'AK') echo 'selected ' ?>>Alaska</option>
@@ -145,7 +145,7 @@ if(isset($_POST['register'])){
 
                                             <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                                                 <label for="zip" class="block text-sm font-medium text-gray-700">Zip / Postal code</label>
-                                                <input id="zip" name="zip" required type="text" value="<?php echo $_SESSION['zip'] ?>" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="zip" name="zip" required type="text" value="<?php echo $_SESSION['zip'] ?>" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
                                         </div>
                                     </div>

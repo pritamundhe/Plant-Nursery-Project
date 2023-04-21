@@ -3,8 +3,9 @@
 require_once 'db_connection.php';
 
 // Get image data from database
-//$result = $db->query("SELECT image FROM images ORDER BY id DESC");
-$result = $conn->query("SELECT image FROM images ORDER BY id DESC");
+$result = $dbname->query("SELECT image FROM images ORDER BY id DESC");
+$result = $conn->query("SELECT image FROM images ORDER BY image_id DESC");
+
 ?>
 
 <?php if($result->num_rows > 0) { ?>

@@ -19,7 +19,7 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet"/>
 
-  <title>BuyMerca</title>
+  <title>greentech</title>
 </head>
 <body class="h-full">
 

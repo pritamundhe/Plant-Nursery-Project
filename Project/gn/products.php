@@ -19,9 +19,7 @@
             <div class="text-sm">
                 <form action="products.php" name="filter" id="sort" method="POST">
                     <!--Sorting-->
-                    <div class="col-span-6 sm:col-span-3">
-                        <button type="submit" name="sorting" class="inline-flex justify-center w-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Filter</button>
-                    </div>
+                   
                     <!--Category or whatever we want-->
                     <div class="border-b border-gray-200 py-6">
                         <h3 class="-my-3 flow-root">
@@ -69,6 +67,9 @@
                         <input type="text" name="cate" hidden value="<?php echo (isset($_POST['cate']))? $_POST['cate']: 1 ?>">
                         <input type="text" name="item_search" hidden value="<?php echo (isset($_POST['item_search']))? $_POST['item_search']: '' ?>">
                     </div>
+                    <div class="col-span-6 sm:col-span-3">
+                        <button type="submit" name="sorting" class="inline-flex justify-center w-full py-2 px-4 border-2 border-solid border-gray-600 square shadow-sm text-sm font-medium square-md text-BLACK bg-gray-00 hover:bg-gray-900  hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Filter</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -97,16 +98,16 @@
                     }
                     $result = $conn->query($sql);
                     while($res = mysqli_fetch_array($result)) {
-                        echo "<div class='max-w-xs rounded-md overflow-hidden shadow-lg'>";
+                        echo "<div class='max-w-xs square-md overflow-hidden shadow-lg'>";
                             echo "<div class='flex justify-center'>";
                                 echo "<img class='h-40' src='" . $res['image'] . "' alt='' />";
                             echo "</div>";
                             echo "<div class='py-4 px-4 bg-white'>";
                             echo "<p class='text-md font-semibold text-gray-600'>" . $res['title'] . "</p>";
                             if($res['price'] != $res['list_price']){
-                                    echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>$" . $res['list_price'] . "</p>";
+                                    echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>₹" . $res['list_price'] . "</p>";
                                 }
-                                echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
+                                echo "<p class='mt-4 text-lg font-thin'>₹" . $res['price'] . "</p>";
                                 echo "<button form='transfer' name='product' value='" . $res['product_ID'] . "' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</button>";
                             echo "</div>";
                         echo "</div>";
@@ -115,16 +116,16 @@
                     $sql = "SELECT * FROM Products";
                     $result = $conn->query($sql);
                     while($res = mysqli_fetch_array($result)) {
-                        echo "<div class='max-w-xs rounded-md overflow-hidden shadow-lg'>";
+                        echo "<div class='max-w-xs square-md border border-gray-300 overflow-hidden shadow-lg'>";
                             echo "<div class='flex justify-center'>";
-                                echo "<img class='h-40' src='" . $res['image'] . "' alt='' />";
+                                echo "<img class='h-30' src='" . $res['image'] . "' alt='' />";
                             echo "</div>";
                             echo "<div class='py-4 px-4 bg-white'>";
                             echo "<p class='text-md font-semibold text-gray-600'>" . $res['title'] . "</p>";
                                 if($res['price'] != $res['list_price']){
-                                    echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>$" . $res['list_price'] . "</p>";
+                                    echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>₹" . $res['list_price'] . "</p>";
                                 }                          
-                                echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
+                                echo "<p class='mt-4 text-lg font-thin'>₹" . $res['price'] . "</p>";
                                 echo "<button form='transfer' name='product' value='" . $res['product_ID'] . "' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</button>";
                             echo "</div>";
                         echo "</div>";
@@ -153,9 +154,9 @@
                                 echo "<div class='py-4 px-4 bg-white'>";
                                 echo "<p class='text-md font-semibold text-gray-600'>" . $res['title'] . "</p>";
                                 if($res['price'] != $res['list_price']){
-                                        echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>$" . $res['list_price'] . "</p>";
+                                        echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>₹" . $res['list_price'] . "</p>";
                                     }                 
-                                    echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
+                                    echo "<p class='mt-4 text-lg font-thin'>₹" . $res['price'] . "</p>";
                                     echo "<button form='transfer' name='product' value='" . $res['product_ID'] . "' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</button>";
                                     echo "</div>";
                             echo "</div>";
@@ -238,9 +239,9 @@
                             echo "<div class='py-4 px-4 bg-white'>";
                             echo "<p class='text-md font-semibold text-gray-600'>" . $res['title'] . "</p>";
                                 if($res['price'] != $res['list_price']){
-                                    echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>$" . $res['list_price'] . "</p>";
+                                    echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>₹" . $res['list_price'] . "</p>";
                                 }                                    
-                                echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
+                                echo "<p class='mt-4 text-lg font-thin'>₹" . $res['price'] . "</p>";
                                 echo "<button form='transfer' name='product' value='" . $res['product_ID'] . "' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</button>";
                             echo "</div>";
                         echo "</div>";

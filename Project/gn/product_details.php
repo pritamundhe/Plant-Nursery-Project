@@ -58,9 +58,9 @@ if(isset($_POST['cart'])){
 <main class="flex w-full">
 
     <!--Display products-->
-    <section class="w-full p-4">
+    <section class="w-full p-2">
         <div class="w-full">
-            <div class="px-10 py-20 bg-white">
+            <div class="px-10 py-0 bg-white">
                 <!--Distplay products below-->
                 <div class="pt-6">
                     <?php
@@ -75,7 +75,7 @@ if(isset($_POST['cart'])){
                         echo "</div>";
                     ?>
                     <!--Images-->
-                        <div class="flex-shrink-0 flex justify-center">
+                        <div class="flex-shrink-0 flex justify-center py-0 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                             <div x-data="photoGalleryApp" class="max-w-xl flex flex-col">
                                 <div class="flex items-center sm:h-80">
                                     <div :class="{'cursor-not-allowed opacity-50': ! hasPrevious()}"  class="hidden sm:block cursor-pointer">
@@ -99,10 +99,10 @@ if(isset($_POST['cart'])){
                                 ?>
                                 <div class="flex justify-center mt-1 space-x-1">
                                     <img src="<?php echo $gran['image'] ?>" :class="{'ring-2 opacity-50': currentPhoto == 0}" class="h-16 w-16" x-on:click="pickPhoto(0)">
-                                    <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/100821385/square.jpg" :class="{'ring-2 opacity-50': currentPhoto == 1}" class="h-16 w-16" x-on:click="pickPhoto(1)">
-                                    <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/75873313/square.jpg" :class="{'ring-2 opacity-50': currentPhoto == 2}" class="h-16 w-16" x-on:click="pickPhoto(2)">
-                                    <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/65267550/square.jpg" :class="{'ring-2 opacity-50': currentPhoto == 3}" class="h-16 w-16" x-on:click="pickPhoto(3)">
-                                    <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/58914463/square.jpg" :class="{'ring-2 opacity-50': currentPhoto == 4}" class="h-16 w-16" x-on:click="pickPhoto(4)">
+                                    <img src="<?php echo $gran['image'] ?>" :class="{'ring-2 opacity-50': currentPhoto == 1}" class="h-16 w-16" x-on:click="pickPhoto(1)">
+                                    <img src="<?php echo $gran['image'] ?>" :class="{'ring-2 opacity-50': currentPhoto == 2}" class="h-16 w-16" x-on:click="pickPhoto(2)">
+                                    <img src="<?php echo $gran['image'] ?>" :class="{'ring-2 opacity-50': currentPhoto == 3}" class="h-16 w-16" x-on:click="pickPhoto(3)">
+                                    <img src="<?php echo $gran['image'] ?>" :class="{'ring-2 opacity-50': currentPhoto == 4}" class="h-16 w-16" x-on:click="pickPhoto(4)">
                                 </div>
                             </div>
                         </div>
@@ -113,10 +113,10 @@ if(isset($_POST['cart'])){
                                 currentPhoto: 0,
                                 photos: [
                                     "<?php echo $gran['image'] ?>",
-                                    "https://inaturalist-open-data.s3.amazonaws.com/photos/100821385/medium.jpg",
-                                    "https://inaturalist-open-data.s3.amazonaws.com/photos/75873313/medium.jpg",
-                                    "https://inaturalist-open-data.s3.amazonaws.com/photos/65267550/medium.jpg",
-                                    "https://inaturalist-open-data.s3.amazonaws.com/photos/58914463/medium.jpg"
+                                    "<?php echo $gran['image'] ?>",
+                                    "<?php echo $gran['image'] ?>",
+                                    "<?php echo $gran['image'] ?>",
+                                    "<?php echo $gran['image'] ?>"
                                 ],
                                 init() { this.changePhoto(); },
                                 nextPhoto() {
@@ -172,7 +172,7 @@ if(isset($_POST['cart'])){
                                 <div class="w-80 bg-white shadow-md w-fulll">
                                     <div class="flex flex-col justify-between p-4 bg-white">
                                         <div class="text-sm">
-                                            <div class="border-b border-gray-200 py-6">
+                                            <div class="border-b border-gray-200 py-2">
                                                 <h3 class="-my-3 flow-root">
                                                 <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
                                                     <?php
@@ -221,7 +221,7 @@ if(isset($_POST['cart'])){
                                                 }
                                                 ?>
                                             </div>
-                                            <!--size or whatever we want
+                                            
                                             <div class="border-b border-gray-200 py-6">
                                                 <h3 class="-my-3 flow-root">
                                                 <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
@@ -242,14 +242,14 @@ if(isset($_POST['cart'])){
                                                     </div>
                                                 </div>
                                             </div>
-                                            -->
+                                        
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </aside>
 
-                        <div class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+                        <div class="py-0 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                             <!-- Description and details -->
                             <div>
                             <h3 class="text-gray-900">Description</h3>
@@ -278,7 +278,7 @@ if(isset($_POST['cart'])){
                             <div class="border-b border-gray-200 py-6">
                                 <h3 class="-my-3 flow-root">
                                 <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
-                                    <span class="font-medium text-gray-900">Brand</span>
+                                    <span class="font-medium text-gray-900">Brand Name</span>
                                 </div>
                                 </h3>
 

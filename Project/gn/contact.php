@@ -28,7 +28,7 @@ session_start();
                         </div>
                         Contact Us
                         </h2>
-                        <p class="mt-6 text-center text-gray-900">BuyMerca wants to hear from you...</p>
+                        <p class="mt-6 text-center text-gray-900">greentech wants to hear from you...</p>
                     </div>
                     <div class="mt-10 sm:mt-0">
                         <div class="w-full">
@@ -45,7 +45,7 @@ session_start();
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="lname" class="block text-sm font-medium text-gray-700">Last Name</label>
-                                                <input id="lname" name="lname" type="text" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <input id="lname" name="lname" type="text" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-4">
@@ -88,7 +88,7 @@ if (isset($_POST['Email'])) {
 
     // The email destination + the Subject of the email.
     $email_to = "jpe3841@gmail.com";
-    $email_subject = "BuyMerca - Contact Us Submission";
+    $email_subject = "greentech - Contact Us Submission";
 
     function problem($error)
     {
@@ -141,7 +141,7 @@ if (isset($_POST['Email'])) {
         problem($error_message);
     }
 
-    $email_message = "BuyMerca's Contact Form details below:\n\n";
+    $email_message = "greentech's Contact Form details below:\n\n";
 
     function clean_string($string)
     {
@@ -162,7 +162,7 @@ if (isset($_POST['Email'])) {
 ?>
 
     <!-- Success Message -->
-    <p class="alert alert-success mt-5 mb-5 text-center">Thank you for contacting BuyMerca. We will be in touch with you as soon as possible.</p>
+    <p class="alert alert-success mt-5 mb-5 text-center">Thank you for contacting greentech. We will be in touch with you as soon as possible.</p>
 
 <?php
 }

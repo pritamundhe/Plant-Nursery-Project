@@ -1,4 +1,4 @@
-# Ecommerce-Project
+# greentech-Project
 
 ## Table of contents
 * [General Info](#general-info)
