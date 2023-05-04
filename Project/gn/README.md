@@ -7,17 +7,12 @@
 * [Collaborators](#collaborators)
 
 ## General Info
-### CSET 280 - Capstone Project
+### TYCO-23 - Capstone Project
 
-The goal of this project is to emulate a
-real-world agency process to plan, design,
-and build a working web application
-according to client specifications and
-employer defined workflows. It will utilize
-everything we've learned this year.
+The goal of this project is to build a website platform which will be the platform for the local nurseries and also allows users to sell their own plants. this will maintain our relationship with the nature. as we know we all are part of the nature
 
 ## The Schedule
-This is an eight-weeks project. Each week will
+This is an cpp project. Each week will
 start with a planning day to prep a week's
 worth of stories and review the previous
 week's deployment.
@@ -30,12 +25,10 @@ week's deployment.
 * PHP
 * phpMyAdmin
 * MySQL
-* Agile Process
 * Feature Branch Git Workflow
-* Heroku (PaaS)
 
 ## Collaborators
-* Anthony Keller
-* Jody Winters
-* Julio Pochet Edmead
-* Michael Baker
+* Pritam Mundhe
+* Bhavesh Duse
+* Aditya Dehade
+* Yash Bhamare

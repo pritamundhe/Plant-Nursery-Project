@@ -1,7 +1,7 @@
 <?php
     include 'db_connection.php';
     session_start();
-//TEMPLATES
+    //TEMPLATES
     include 'templates/head.html';
     include 'templates/nav-bar.php';
 
@@ -47,10 +47,7 @@
         </div>
         <?php
     }
-
-
 ?>
-
     <!--Popular Products-->
     <div class="bg-white">
         <form action="product_details.php" method="POST" id="transfer">
@@ -69,7 +66,7 @@
                        $product = $search->fetch_assoc();
                        //<!--Product 1-->
                        echo "<div class='group relative'>";
-                           echo "<div class='w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden border border-solid border-gray-900 square group-hover:opacity-75 lg:h-70 lg:aspect-none'>";
+                           echo "<div class='w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden square group-hover:opacity-75 lg:h-70 lg:aspect-none'>";
                                echo "<img src='" . $product['image'] . "' alt='placeholder' class='w-full h-full object-center object-cover lg:w-full lg:h-full'>";
                            echo "</div>";
                            echo "<div class='mt-4 flex justify-between'>";
@@ -98,83 +95,8 @@
     </div>
 
     <!-- Featured Products -->
-    <div class="bg-white">
-        <form action="product_details.php" method="POST" id="transfer">
-        <div class="max-w-2xl mx-auto py-16 px-4 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-2">
-            <h2 class="text-2xl font-extrabold tracking-tight text-gray-900"></h2>
-            <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                <?php
 
-                $sql1 = "SELECT * FROM products WHERE featured = 1";
-                $sql2 = "SELECT * FROM products WHERE featured = 2";
-                $sql3 = "SELECT * FROM products WHERE featured = 3";
-                $featured1 = $conn->query($sql1);
-                $featured2 = $conn->query($sql2);
-                $featured3 = $conn->query($sql3);
-            ?>
-
-            <?php while($product = mysqli_fetch_assoc($featured1)) :?>
-            <!--Product Featured 1-->
-                <div class='group relative'>
-                    <div class='w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none'>
-                        <img src='<?= $product['image']; ?>' alt='Featured Product' class='w-full h-full object-center object-cover lg:w-full lg:h-full'>
-                    </div>
-                    <div class='mt-4 flex justify-between'>
-                        <div>
-                            <h3 class='text-sm text-gray-700'>
-                            <button form='transfer' name='product' value='<?= $product['product_ID']; ?>'>
-                            <span aria-hidden='true' class='absolute inset-0'></span>
-                            <?= $product['title']; ?>
-                            </button>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <?php endwhile; ?>
-                
-                <?php while($product = mysqli_fetch_assoc($featured2)) :?>
-                <!--Product Featured 1-->
-                    <div class='group relative'>
-                        <div class='w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none'>
-                            <img src='<?= $product['image']; ?>' alt='Featured Product' class='w-full h-full object-center object-cover lg:w-full lg:h-full'>
-                        </div>
-                        <div class='mt-4 flex justify-between'>
-                            <div>
-                                <h3 class='text-sm text-gray-700'>
-                                <button form='transfer' name='product' value='<?= $product['product_ID']; ?>'>
-                                <span aria-hidden='true' class='absolute inset-0'></span>
-                                <?= $product['title']; ?>
-                                </button>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endwhile; ?>
-
-                    <?php while($product = mysqli_fetch_assoc($featured3)) :?>
-                    <!--Product Featured 1-->
-                        <div class='group relative'>
-                            <div class='w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none'>
-                                <img src='<?= $product['image']; ?>' alt='Featured Product' class='w-full h-full object-center object-cover lg:w-full lg:h-full'>
-                            </div>
-                            <div class='mt-4 flex justify-between'>
-                                <div>
-                                    <h3 class='text-sm text-gray-700'>
-                                    <button form='transfer' name='product' value='<?= $product['product_ID']; ?>'>
-                                    <span aria-hidden='true' class='absolute inset-0'></span>
-                                    <?= $product['title']; ?>
-                                    </button>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endwhile; ?>
-
-            </div>
-        </div>
-        </form>
-    </div>
-
-<?php // TEMPLATES
+<?php 
+// TEMPLATES
 include 'templates/footer.html';
 ?>

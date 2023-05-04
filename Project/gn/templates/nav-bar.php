@@ -6,7 +6,7 @@
 
 ?>
 <!-- Nav Bar -->
-<nav class="bg-green-700 border-2 border-gray-900" style="margin-top:0px;">
+<nav class="bg-green-600 border border-gray-800" style="margin-top:0px;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between"><h1><a href="index.php" class="px-3 py-2">
         <img class="w-20 hover:bg-gray-500" src="images/greentech.png" alt="Greentech-logo" style="padding-top:0;"/>

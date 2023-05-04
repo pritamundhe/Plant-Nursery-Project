@@ -89,8 +89,8 @@ if(isset($_POST['register'])){
                                                 <label for="state" class="block text-sm font-medium text-gray-700">State</label>
                                                 <select id="state" name="state" required type="text" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 square-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"><br>
                                                     <option value="">---</option>
-                                                    <option value="AL" <?php if($_SESSION['state'] == 'AL') echo 'selected ' ?>>Alabama</option>
-                                                    <option value="AK" <?php if($_SESSION['state'] == 'AK') echo 'selected ' ?>>Alaska</option>
+                                                    <option value="AL" <?php if($_SESSION['state'] == 'AL') echo 'selected ' ?>></option>
+                                                    <option value="AK" <?php if($_SESSION['state'] == 'AK') echo 'selected ' ?>></option>
                                                     <option value="AZ" <?php if($_SESSION['state'] == 'AZ') echo 'selected ' ?>>Arizona</option>
                                                     <option value="AR" <?php if($_SESSION['state'] == 'AR') echo 'selected ' ?>>Arkansas</option>
                                                     <option value="CA" <?php if($_SESSION['state'] == 'CA') echo 'selected ' ?>>California</option>

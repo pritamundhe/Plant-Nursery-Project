@@ -1,0 +1,21 @@
+# Query: '$'
+# ContextLines: 1
+
+5 results - 3 files
+
+edit_listing.php:
+  33  
+  34:         $price = str_replace₹', ' ', $_POST['price']);
+  35:         $listPrice = str_replace('$', ' ', $_POST['listPrice']);
+  36  
+
+seller_account.php:
+  30  if(isset($_POST['save'])){
+  31:     $price = str_replace('$', ' ', $_POST['price']);
+  32:     $listPrice = str_replace('$', ' ', $_POST['listPrice']);
+  33  
+
+seller_new_listing.php:
+  27      }
+  28:     $price = str_replace('$', ' ', $_POST['price']);
+  29  
