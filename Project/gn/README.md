@@ -7,7 +7,7 @@
 * [Collaborators](#collaborators)
 
 ## General Info
-### TYCO-23 - Capstone Project
+### TY-Computer Engineering
 
 The goal of this project is to build a website platform which will be the platform for the local nurseries and also allows users to sell their own plants. this will maintain our relationship with the nature. as we know we all are part of the nature
 
